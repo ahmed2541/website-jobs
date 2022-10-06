@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+   
+   <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="main-banner header-text">
+      <div class="container-fluid">
+        <div class="owl-banner owl-carousel">
+          {% for job in jobs %}
+          <div class="item">
+            <img src="{{job.image.url}}" alt="">
+            <div class="item-content">
+              
+              <div class="main-content">
+                <div class="meta-category">
+                  <span>${{job.salary}}</span>
+                </div>
+
+                <a href="{% url 'jobs:job_detail' job.slug %}"><h4>{{job.title}}</h4></a>
+
+                <ul class="post-info">
+                  
+                </ul>
+              </div>
+            
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    <section class="blog-posts grid-system">
+      <div class="container">
+        <div class="all-blog-posts">
+          <h2 class="text-center">Featured Jobs</h2>
+          <br>
+          
+          <div class="row">
+            {% for job in pag %}
+            <div class="col-md-4 col-sm-6">
+              
+              <div class="blog-post">
+                <div class="blog-thumb">
+                  <img src="" alt="">
+                </div>
+                <div class="down-content">
+                  <span>${{job.salary}}</span>
+                  <a href="{% url 'jobs:job_list' %}"><h4>{{job.title}}</h4></a>
+                  <p>{{job.content}}</p>
+                  <div class="post-options">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <ul class="post-tags">
+                          <li><i class="fa fa-bullseye"></i></li>
+                          <li><a href="{% url 'jobs:job_detail' job.slug %}">View Job</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            {% endfor %}
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-content">
+              <div class="row">
+                <div class="col-lg-8">
+                  <span>contact us </span>
+                  <h4>If you need a help</h4>
+                </div>
+                <div class="col-lg-4">
+                  <div class="main-button">
+                    <a href="{% url 'contact:contact' %}">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+{% endblock body %}

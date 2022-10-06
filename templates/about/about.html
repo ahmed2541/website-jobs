@@ -1,0 +1,68 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+      <section class="page-heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                <h4>about us</h4>
+                <h4>الحمد لله </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Banner Ends Here -->
+
+
+    <section class="about-us">
+      <div class="container">
+      	
+        <div class="row">
+          <div class="col-lg-12">
+            {% for im in image %}
+
+            <img src="{{im.image.url}}" alt="">
+            {% endfor %}
+            <br>
+            <br>
+
+            <h2>لقد هرمنا من اجل هذه اللحظه والله</h2>
+            <br>
+            <div>
+              <p> My Name Is :Ahmed Hamdy Saad Abdelhy ,22years ,i am still studying ,والله منا مكمل  </p>
+            </div>
+            
+            <h2>backend developer</h2>
+            <h2>django framework 
+                python, html, css,(js) </h2>
+            <h2>
+              faculty of engineering at nahda university
+            </h2>
+
+          </div>
+        </div>
+        <br>
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="social-icons">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://twitter.com/AhmedHa13707652?t=qSwlKPo98ru8wkNAxE2DEA&s=09" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/ahmed-hamdy-93a390217" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+{% endblock body %}   

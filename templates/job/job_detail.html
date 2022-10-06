@@ -1,0 +1,143 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+      <!-- Page Content -->
+      <!-- Banner Starts Here -->
+      <div class="heading-page header-text">
+        <section class="page-heading">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="text-content">
+                  
+                  <h4>${{job.salary}}</h4>
+                  <h2>{{job.title}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <!-- Banner Ends Here -->
+
+      <section class="blog-posts grid-system">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div>
+                <img src="{{job.image.url}}" alt="" class="img-fluid wc-image">
+              </div>
+
+              <br>
+            </div>
+
+            <div class="col-md-8">
+              <div class="sidebar-item recent-posts">
+                <div class="sidebar-heading">
+                  <h2>
+                  <i class="fa fa-map-marker"></i> {{job.location}} &nbsp;&nbsp;
+                  <i class="fa fa-calendar"></i>{{job.published_at|date:'d M o'}} &nbsp;&nbsp;
+                  
+                  </h2>
+                </div>
+
+                <div class="content">
+                  <p>{{job.content}}</p>
+                </div>
+              </div>
+
+              <br>
+            
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="main-button">
+                    <a href="{% url 'jobs:apply_job' job.slug %}">Apply for this Job</a>
+                  </div>
+                </div>
+              </div>
+
+              <br>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section contact-us">
+        
+        <hr >
+          <div class="row">
+            <div class="col-md-8 ">
+              <div class="sidebar-heading p-2">
+                <h2>Description</h2>
+
+              </div>
+              <div class="content p-2">
+                <p>{{job.description}}</p>
+              
+              </div>
+              
+            </div>
+
+            <div class="col-lg-4">
+              <div class="sidebar-item recent-posts">
+                <div class="sidebar-heading">
+                  <h2>Contact Details</h2>
+                </div>
+
+                
+                {% for info in info %}
+                <div class="content">
+                  <p>
+                    <span>Name</span>
+
+                    <br>
+
+                    <strong><h4>{{info.name}}</h4></strong>
+                  </p>
+
+                  <p>
+                    <span>Phone</span>
+
+                    <br>
+                    
+                    <strong>
+                      <a href="tel:{{info.phone_number}}">{{info.phone_number}}</a>
+                    </strong>
+                  </p>
+
+
+
+                  <p>
+                    <span>Email</span>
+
+                    <br>
+                    
+                    <strong>
+                      <a href="mailto:{{info.email}}">{{info.email}}</a>
+                    </strong>
+                  </p>
+
+                  <p>
+                    <span>location</span>
+
+                    <br>
+                    
+                    <strong>
+                      <h5>{{info.location}}</h5>
+                    </strong>
+                  </p>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+
+
+{% endblock body %}
+
