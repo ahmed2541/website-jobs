@@ -1,2 +1,3 @@
 "# website-jobs" 
-no thing
+create a venv with yourself 
+and use it 
